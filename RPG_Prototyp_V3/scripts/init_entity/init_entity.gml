@@ -1,31 +1,42 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function init_entity(arr){
-	var ins = instance_create_layer(0, 0, "Instances", Battle_Entity_obj)
+	if(arr != ""){
+		var ins = instance_create_layer(0, 0, "Instances", Battle_Entity_obj)
 	
-	// todo init all variables from arr.
+		// todo init all variables from arr.
 	
-	ins.ins_name = arr[0]
-	ins.side = arr[1]
-	ins.control = arr[2]
-	ins.bStats = arr[3]
-	ins.MHP = arr[4]
-	ins.CHP = arr[5]
-	ins.MMP = arr[6]
-	ins.CMP = arr[7]
-	ins.bRes = arr[8]
+		ins.ins_name = arr[0]
+		ins.side = arr[1]
+		ins.control = arr[2]
+		ins.bStats = arr[3]
+		ins.MHP = arr[4]
+		ins.CHP = arr[5]
+		ins.THP = ins.CHP
+		ins.MMP = arr[6]
+		ins.CMP = arr[7]
+		ins.bRes = arr[8]
 	
-	for(var i = 0; i < array_length(arr[9]); i ++){
-		ds_list_add(ins.actions, arr[9][i])
+		for(var i = 0; i < array_length(arr[9]); i ++){
+			ds_list_add(ins.actions, arr[9][i])
+		}
+		for(var i = 0; i < array_length(arr[10]); i ++){
+			ds_list_add(ins.effects, arr[10][i])
+		}
+		for(var i = 0; i < array_length(arr[11]); i ++){
+			ds_list_add(ins.reactions, arr[11][i])
+		}
+	
+		ins.equipment = arr[12]
+	
+		if(arr[1]){
+			ins.CRate = 1
+		}
+	
+		return ins
+	}else{
+		return ""
 	}
-	for(var i = 0; i < array_length(arr[10]); i ++){
-		ds_list_add(ins.effects, arr[10][i])
-	}
-	for(var i = 0; i < array_length(arr[11]); i ++){
-		ds_list_add(ins.reactions, arr[11][i])
-	}
-	
-	return ins
 }
 /*
 name = "testerino"						0

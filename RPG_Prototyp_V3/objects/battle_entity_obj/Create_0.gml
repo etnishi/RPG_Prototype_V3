@@ -1,8 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+idleY = y
 
 ins_name = "testerino"
 
+isDowned = false
 active = false
 canAct = true
 
@@ -12,12 +14,19 @@ side = false
 control = ""
 controlMenu = noone
 
+extraAct = false
+selfInd = -1
 selectLv = 0
 selectSide = !side
 selectTarg = 0
+targMode = 0
 selectAct = 0
 
 statInit = true
+
+xpLv = 10
+
+agroMod = 1
 
 // [str, def, mag, mdef, spd, lck]
 bStats = [1, 1, 1, 1, 1, 1]
@@ -26,6 +35,7 @@ cStats = [1, 1, 1, 1, 1, 1]
 MHP = 100
 CHP = 100
 THP = 100
+CRate = 0.1
 
 MMP = 10
 CMP = 10
@@ -39,6 +49,15 @@ cRes = [1, 1, 1, 1, 1, 1, 1]
 
 actions = ds_list_create()
 
+extra_acts = [run_setup(), itemHeal_setup()]
+
 effects = ds_list_create()
 
 reactions = ds_list_create()
+
+equipment = ["", "", "", "", "", "", "", ""]
+//	[0 weapon, 1 alt weapon, 2 chest, 3 head, 4 feet, 5 hands, 6 accessory1, 7 accessory2]
+//	armor array		[icon, type, def bonus, mdef bonus, script]
+//	weapon array	[icon, type, bonus, [bonus type arr]]
+
+

@@ -2,19 +2,20 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function init_test_player(){
 	var out = []
+	out[12] = ["", "", "", "", "", "", "", ""]
 	
 	out[0]	= "name"
 	out[1]	= false
 	out[2]	= player_control
-	out[3]	= [1, 1, 1, 1, 1, 1]
+	out[3]	= [10, 10, 10, 10, 10, 10]
 	out[4]	= 100
 	out[5]	= 100
-	out[6]	= 10
-	out[7]	= 10
+	out[6]	= 20
+	out[7]	= 20
 	out[8]	= [1, 1, 1, 1, 1, 1, 1]
-	out[9]	= [bash_setup(), defend_setup()]
-	out[10] = []
-	out[11] = []
+	out[9]	= [bash_setup(), defend_setup(), mbash_setup(), heal_setup(), put_sleep_setup(), heal_effect_setup(), put_Risk_Charge_setup()]
+	out[10] = [mp_regen_setup()]
+	out[11] = [endure_setup()]
 	
 	return out
 }

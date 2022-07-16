@@ -7,11 +7,16 @@ function start_battle(eArr){
 	for(var i = 0; i < array_length(global.team); i ++){
 		if(global.team[i] != noone){
 			var hld = init_entity(global.team[i])
-			ds_list_add(ins.entities, hld)
+			if(hld != ""){
+				ds_list_add(ins.entities, hld)
+				hld.selfInd = ds_list_find_index(ins.entities, hld)
+			}
 		}
 	}
 	for(var i = 0; i < array_length(eArr); i ++){
 		var hld = init_entity(eArr[i])
-		ds_list_add(ins.entities, hld)
+		if(hld != ""){
+			ds_list_add(ins.entities, hld)
+		}
 	}
 }
